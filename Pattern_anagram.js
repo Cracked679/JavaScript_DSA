@@ -3,36 +3,36 @@
 var first = [];
 var second = [];
 
-function validAnagram(first,second){
-    
-    if(first.length !== second.length){
+function validAnagram(first, second) {
+
+    if (first.length !== second.length) {
         return false;
     }
 
-    const lookup= {};
+    const lookup = {};
 
-    for(let i=0;i<first.length;i++){
-        
+    for (let i = 0; i < first.length; i++) {
+
         let letter = first[i];
-        lookup[letter] ? lookup[letter] += 1 : lookup[letter]=1;
-    
+        lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+
     }
-    
+
     console.log(lookup);
 
-    for(let i=0;i< second.length;i++){
+    for (let i = 0; i < second.length; i++) {
 
         let letter = second[i];
 
-        if(!lookup[letter]){
+        if (!lookup[letter]) {
             return false;
+        } else {
+            lookup[letter] -= 1;
         }
-        else{
-            lookup[letter] -= 1; 
-        }
-        
-    }return true;
+
+    }
+    return true;
 
 }
 
-validAnagram('shyam','mayha');
+validAnagram('shyam', 'mayha');
